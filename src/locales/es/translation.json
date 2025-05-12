@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "title": "Juan Diego Huamani| Portafolio"
+  },
+  "hero": {
+    "role": "Full Stack Developer",
+    "name": "Juan Diego",
+    "tagline": "Transformando ideas en experiencias digitales únicas",
+    "cta": {
+      "projects": "Ver Proyectos",
+      "contact": "Contactar"
+    }
+  },
+  "about": {
+    "title": "SOBRE",
+    "title2": "MI",
+    "subtitle": "Minimalismo, tecnología y creatividad en cada línea de código.",
+    "greeting": "👋 ¡Hola! Soy Juan Diego, un Desarrollador Full Stack.",
+    "description": "He estado trabajando con React y Node durante los últimos años, construyendo aplicaciones web que son rápidas, escalables y fáciles de usar. Me gusta resolver problemas, aprender cosas nuevas y experimentar con diferentes tecnologías. Cuando no estoy programando, probablemente esté trabajando en un proyecto personal o explorando algo nuevo.",
+    "experience": {
+      "title": "EXPERIENCIA",
+      "1": {
+        "title": "Frontend Developer",
+        "subtitle": "@SOCIMEP | 2022 - 2022",
+        "description": {
+          "1": "Desarrollo principal del proyecto SOCIMEP, plataforma de gestión de cursos y certificaciones para egresados de Biomedicina.",
+          "2": "Desarrollo de aplicacion Web para la informacion sobre la empresa",
+          "3": "Desarrollo de Aula Virtual para la gestion de cursos y certificaciones"
+        }
+      },
+      "2": {
+        "title": "Full Stack Developer",
+        "subtitle": "@DEKODING | 2023 - Actualidad",
+        "description": {
+          "1": "Desarrollo de aplicaciones Web para la gestion de proyectos de desarrollo de software",
+          "2": "Desarrollo de aplicaciones Web con React, Laravel y MySQL"
+        }
+      }
+    },
+    "education": {
+      "title": "EDUCACION",
+      "1": {
+        "title": "Ciencias de la Computacion",
+        "subtitle": "@Universidad Nacional de San Agustin"
+      }
+    }
+  },
+  "tech": {
+    "title": "KIT",
+    "title2": "TECNICO",
+    "stacks": {
+      "core": "Tecnologías principales con las que trabajo",
+      "ui": "UI & Estilos",
+      "databases": "Bases de datos que utilizo"
+    }
+  }
+} 
