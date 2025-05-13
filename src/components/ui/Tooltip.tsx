@@ -5,8 +5,13 @@ import { cn } from "@/utils/cn"
 
 type TooltipPosition = "top" | "right" | "bottom" | "left"
 
+interface TooltipChildProps extends React.HTMLAttributes<HTMLElement> {
+  "data-tooltip-id"?: string
+  "data-tooltip-content"?: string
+}
+
 export interface TooltipProps {
-  children: React.ReactElement
+  children: React.ReactElement<TooltipChildProps>
   content: React.ReactNode
   position?: TooltipPosition
   delay?: number
@@ -81,7 +86,7 @@ export function Tooltip({
 
 export interface SimpleTooltipProps {
   content: React.ReactNode
-  children: React.ReactElement
+  children: React.ReactElement<TooltipChildProps>
   position?: TooltipPosition
   delay?: number
   className?: string
