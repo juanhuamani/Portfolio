@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "https://juanhuamani.github.io/Portfolio",
+  base: "https://juanhuamani.github.io/Portfolio/",
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
