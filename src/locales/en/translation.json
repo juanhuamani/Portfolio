@@ -3,8 +3,11 @@
     "title": "Juan Diego Huamani| Portfolio"
   },
   "hero": {
-    "role": "Full Stack Developer",
-    "name": "Juan Diego",
+    "role1": "Full Stack Developer",
+    "role2": "UI/UX Designer",
+    "role3": "Problem Solver",
+    "role4": "Tech Enthusiast",
+    "name": "JUAN DIEGO",
     "tagline": "Transforming ideas into unique digital experiences",
     "cta": {
       "projects": "View Projects",
