@@ -4,7 +4,10 @@ import { Languages } from 'lucide-react';
 
 export default function LanguageToggle() {
   const { i18n } = useTranslation();
-  const [isEnglish, setIsEnglish] = useState(false);
+  const [isEnglish, setIsEnglish] = useState(() => {
+  if (typeof window === 'undefined') return false;
+  return (localStorage.getItem('lang') || 'es') === 'en';
+});
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -35,6 +38,9 @@ export default function LanguageToggle() {
         
         {/* Main toggle container */}
         <button
+          role="switch"
+          aria-checked={isEnglish}
+          aria-label={`Switch language to ${isEnglish ? 'Español' : 'English'}`}
           onClick={toggleLanguage}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
