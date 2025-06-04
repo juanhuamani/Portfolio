@@ -56,5 +56,9 @@
       "ui": "UI & Styling",
       "databases": "Databases I Use"
     }
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "title2": "SHOWCASE"
   }
 } 

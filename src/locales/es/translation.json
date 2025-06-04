@@ -56,5 +56,9 @@
       "ui": "UI & Estilos",
       "databases": "Bases de datos que utilizo"
     }
+  },
+  "projects": {
+    "title": "PROYECTOS",
+    "title2": "PORTAFOLIO"
   }
 } 

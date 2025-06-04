@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/Card";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { motion, useInView } from "framer-motion";
 import {
   SiReact,
   SiLaravel,
@@ -12,11 +13,34 @@ import {
   SiDjango,
 } from "@icons-pack/react-simple-icons";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
 
 export function TechRightContent() {
   const { t } = useTranslation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   const stacks = [
     {
       title: t('tech.stacks.core'),
@@ -44,14 +68,21 @@ export function TechRightContent() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <motion.div 
+      ref={ref}
+      className="flex flex-col items-center justify-center h-full"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={containerVariants}
+    >
       <Card>
         <CardContent>
           <div className="flex flex-col items-center justify-center h-full gap-10 py-2">
             {stacks.map((section) => (
-              <div
+              <motion.div
                 key={section.title}
                 className="flex flex-col items-center w-full"
+                variants={itemVariants}
               >
                 <h2 className="text-sm md:text-lg italic mb-4">
                   {section.title}
@@ -59,22 +90,24 @@ export function TechRightContent() {
                 <div className="flex flex-row flex-wrap gap-6 justify-center">
                   {section.items.map(({ icon: Icon, name, color }) => (
                     <Tooltip key={name} content={name} position="top">
-                      <span
+                      <motion.span
                         className="p-3 rounded-xl shadow-lg transition-all duration-300 bg-black/40 border border-white/10 hover:scale-110"
                         style={{
                           boxShadow: `0 0 16px 2px ${color}99, 0 0 32px 4px ${color}33`,
                         }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <Icon size={38} color={color} />
-                      </span>
+                      </motion.span>
                     </Tooltip>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </CardContent>
       </Card>
-    </div>
+    </motion.div>
   );
 }

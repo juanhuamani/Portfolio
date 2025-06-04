@@ -4,6 +4,7 @@ import { BackgroundGrid } from "@/components/common/background-grid";
 import { Tech } from "@/components/app/home/Tech";
 import LanguageSwitch from "@/components/common/LanguageSwitch";
 import { Parallax } from 'react-scroll-parallax';
+import { Projects } from "@/components/app/home/Projects";
 
 export const HomePage = () => {
   return (
@@ -12,7 +13,7 @@ export const HomePage = () => {
         <LanguageSwitch />
       </div>
       <BackgroundGrid />
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col">
         <Parallax speed={50}>
           <Hero />
         </Parallax>
@@ -21,6 +22,9 @@ export const HomePage = () => {
         </Parallax>
         <Parallax speed={50}>
           <Tech />
+        </Parallax>
+        <Parallax speed={50}>
+          <Projects />
         </Parallax>
       </div>
     </div>

@@ -2,7 +2,7 @@ import type React from "react"
 
 import { useTranslation } from "react-i18next"
 import { SiGithub, SiGmail } from "@icons-pack/react-simple-icons"
-import { motion, useAnimationControls, useMotionValue, useSpring, useTransform } from "framer-motion"
+import { motion, useAnimationControls, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion"
 import { useEffect, useState, useRef } from "react"
 
 export const Hero = () => {
@@ -105,17 +105,59 @@ export const Hero = () => {
   }
 
   const roleVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { 
+      opacity: 0, 
+      y: 20,
+      filter: "blur(10px)"
+    },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5 },
+      filter: "blur(0px)",
+      transition: { 
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      },
     },
     exit: {
       opacity: 0,
-      y: -10,
-      transition: { duration: 0.3 },
+      y: -20,
+      filter: "blur(10px)",
+      transition: { 
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1]
+      },
     },
+  }
+
+  const nameVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  }
+
+  const charVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      filter: "blur(8px)"
+    },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.8,
+        delay: 0.5 + i * 0.05,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    })
   }
 
   // Split name into individual characters for animation
@@ -123,12 +165,14 @@ export const Hero = () => {
   const nameChars = nameText.split("")
 
   return (
-    <section
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="w-full overflow-hidden relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8"
       onMouseMove={handleMouseMove}
       ref={containerRef}
     >
-
       <motion.div
         className="text-center space-y-4 sm:space-y-6 relative z-10"
         initial="hidden"
@@ -136,17 +180,23 @@ export const Hero = () => {
         variants={containerVariants}
       >
         <motion.div className="space-y-2" variants={itemVariants}>
-          <motion.div className="h-6 sm:h-7 overflow-hidden relative" initial={{ opacity: 1 }} animate={{ opacity: 1 }}>
-            <motion.p
-              key={roleIndex}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={roleVariants}
-              className="text-blue-400/80 text-xs sm:text-sm tracking-[0.5em] uppercase font-light absolute w-full"
-            >
-              {roles[roleIndex]}
-            </motion.p>
+          <motion.div 
+            className="h-6 sm:h-7 overflow-hidden relative" 
+            initial={{ opacity: 1 }} 
+            animate={{ opacity: 1 }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={roleIndex}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={roleVariants}
+                className="text-blue-400/80 text-xs sm:text-sm tracking-[0.5em] uppercase font-light absolute w-full"
+              >
+                {roles[roleIndex]}
+              </motion.p>
+            </AnimatePresence>
           </motion.div>
 
           {/* Futuristic 3D name with interactive rotation and per-character animation */}
@@ -156,6 +206,7 @@ export const Hero = () => {
               rotateX: rotateX,
               rotateY: rotateY,
             }}
+            variants={nameVariants}
           >
             {/* Glow effect behind name */}
             <motion.div
@@ -170,24 +221,15 @@ export const Hero = () => {
               transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
 
-            <motion.div className="flex justify-center overflow-hidden" animate={nameControls}>
+            <motion.div className="flex justify-center overflow-hidden">
               {nameChars.map((char, index) => (
                 <motion.span
                   key={index}
+                  custom={index}
+                  variants={charVariants}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold inline-block"
                   style={{
                     textShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    color: char === " " ? "transparent" : undefined,
-                  }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.5 + index * 0.04,
-                    ease: "easeOut",
                   }}
                   whileHover={{
                     scale: 1.1,
@@ -222,9 +264,13 @@ export const Hero = () => {
             {/* Animated line under the name */}
             <motion.div
               className="h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-2 sm:mt-3 mx-auto"
-              initial={{ width: "0%" }}
-              animate={{ width: "80%" }}
-              transition={{ delay: 1.2, duration: 1.5, ease: "easeOut" }}
+              initial={{ width: "0%", opacity: 0 }}
+              animate={{ width: "80%", opacity: 1 }}
+              transition={{ 
+                delay: 1.2, 
+                duration: 1.5, 
+                ease: [0.22, 1, 0.36, 1]
+              }}
             />
           </motion.div>
         </motion.div>
@@ -357,6 +403,6 @@ export const Hero = () => {
           />
         </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }
