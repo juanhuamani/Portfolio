@@ -164,6 +164,7 @@ export const Hero = () => {
   const nameText = t("hero.name")
   const nameChars = nameText.split("")
 
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -286,7 +287,15 @@ export const Hero = () => {
           className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 pt-6 sm:pt-8"
           variants={itemVariants}
         >
-          <motion.button
+          <motion.a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('projects')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }}
             className="px-6 sm:px-8 py-2 sm:py-3 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20 relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
@@ -307,7 +316,7 @@ export const Hero = () => {
             />
 
             <span className="relative z-10">{t("hero.cta.projects")}</span>
-          </motion.button>
+          </motion.a>
 
           <motion.button
             className="px-6 sm:px-8 py-2 sm:py-3 bg-transparent text-gray-300 rounded-full border border-gray-500/20 relative overflow-hidden group"

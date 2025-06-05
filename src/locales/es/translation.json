@@ -59,6 +59,33 @@
   },
   "projects": {
     "title": "PROYECTOS",
-    "title2": "PORTAFOLIO"
+    "title2": "PORTAFOLIO",
+    "items": {
+      "moda_shop": {
+        "title": "MODA SHOP",
+        "description": "Tienda de ropa online con sistema de autenticación, carrito de compras y panel de administración",
+        "technologies": ["React", "Django", "PostgreSQL"]
+      },
+      "socimep": {
+        "title": "SOCIMEP",
+        "description": "Plataforma de gestión de cursos y certificaciones para egresados de Biomedicina",
+        "technologies": ["Svelte", "Pocketbase"]
+      },
+      "portfolio": {
+        "title": "Portfolio Personal",
+        "description": "Mi portafolio personal construido con React, TypeScript y Tailwind CSS",
+        "technologies": ["React", "TypeScript", "Tailwind CSS"]
+      }
+    }
+  },
+  "contact": {
+    "title": "CONTACTAR",
+    "description": "¿Tienes un proyecto en mente? ¡Hablemos! Estoy siempre abierto a discutir nuevas oportunidades y colaboraciones.",
+    "form": {
+      "name": "Tu nombre",
+      "email": "Tu email",
+      "message": "Tu mensaje",
+      "submit": "Enviar Mensaje"
+    }
   }
 } 

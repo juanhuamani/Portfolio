@@ -17,9 +17,9 @@
   "about": {
     "title": "ABOUT",
     "title2": "ME",
-    "subtitle": "Minimalism, technology, and creativity in every line of code.",
-    "greeting": "👋 Hello! I'm Juan Diego, a Full Stack Developer.",
-    "description": "I've been working with React and Node for the past few years, building fast, scalable, and user-friendly web applications. I enjoy solving problems, learning new things, and experimenting with different technologies. When I'm not coding, I'm likely working on a personal project or exploring something new.",
+    "subtitle": "Minimalism, technology and creativity in every line of code.",
+    "greeting": "👋 Hi! I'm Juan Diego, a Full Stack Developer.",
+    "description": "I've been working with React and Node for the past few years, building web applications that are fast, scalable, and easy to use. I enjoy solving problems, learning new things, and experimenting with different technologies. When I'm not coding, I'm probably working on a personal project or exploring something new.",
     "experience": {
       "title": "EXPERIENCE",
       "1": {
@@ -27,16 +27,16 @@
         "subtitle": "@SOCIMEP | 2022 - 2022",
         "description": {
           "1": "Main development of the SOCIMEP project, a course and certification management platform for Biomedicine graduates.",
-          "2": "Development of a Web application for company information",
-          "3": "Development of a Virtual Classroom for course and certification management"
+          "2": "Web application development for company information",
+          "3": "Virtual Classroom development for course and certification management"
         }
       },
       "2": {
         "title": "Full Stack Developer",
         "subtitle": "@DEKODING | 2023 - Present",
         "description": {
-          "1": "Development of Web applications for software development project management",
-          "2": "Development of Web applications with React, Laravel and MySQL"
+          "1": "Web application development for software development project management",
+          "2": "Web application development with React, Laravel and MySQL"
         }
       }
     },
@@ -50,15 +50,42 @@
   },
   "tech": {
     "title": "TECH",
-    "title2": "SET",
+    "title2": "STACK",
     "stacks": {
-      "core": "Core Stack I Work With",
+      "core": "Core technologies I work with",
       "ui": "UI & Styling",
-      "databases": "Databases I Use"
+      "databases": "Databases I use"
     }
   },
   "projects": {
     "title": "PROJECTS",
-    "title2": "SHOWCASE"
+    "title2": "PORTFOLIO",
+    "items": {
+      "moda_shop": {
+        "title": "MODA SHOP",
+        "description": "Online clothing store with authentication system, shopping cart and admin panel",
+        "technologies": ["React", "Django", "PostgreSQL"]
+      },
+      "socimep": {
+        "title": "SOCIMEP",
+        "description": "Course and certification management platform for Biomedicine graduates",
+        "technologies": ["Svelte", "Pocketbase"]
+      },
+      "portfolio": {
+        "title": "Personal Portfolio",
+        "description": "My personal portfolio built with React, TypeScript and Tailwind CSS",
+        "technologies": ["React", "TypeScript", "Tailwind CSS"]
+      }
+    }
+  },
+  "contact": {
+    "title": "CONTACT",
+    "description": "Have a project in mind? Let's talk! I'm always open to discussing new opportunities and collaborations.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "message": "Your message",
+      "submit": "Send Message"
+    }
   }
 } 
